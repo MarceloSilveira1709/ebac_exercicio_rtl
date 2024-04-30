@@ -7,4 +7,13 @@ describe('Teste para o componente PostComment', () => {
         render(<PostComment/>);
         expect(screen.getByText('Comentar')).toBeInTheDocument();
     });
-});
+
+    test ('Deve acicionar 2 comentarios' , () => {        
+        render(<PostComment />)
+
+        const botao = screen.getByTestId('btn-comentar')
+        fireEvent.click(botao)
+
+        expect(screen.getAllByTestId('campo-comentario')).toHaveLength(2)
+        })        
+    })
